@@ -1,0 +1,20 @@
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# node
+node_modules/
+dist/
+
+# app data (runtime, not source)
+uploads/
+*.db
+*.sqlite
+
+# env and secrets
+.env
+
+# misc
+.DS_Store
