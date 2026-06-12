@@ -51,9 +51,12 @@ CREATE VIRTUAL TABLE IF NOT EXISTS images_fts USING fts5(
 
 
 def get_connection(db_path: Path | str | None = None) -> sqlite3.Connection:
-    conn = sqlite3.connect(db_path or DEFAULT_DB_PATH)
+    # check_same_thread=False: FastAPI resolves the sync connection dependency
+    # in a threadpool thread while async endpoints use the event loop thread
+    conn = sqlite3.connect(db_path or DEFAULT_DB_PATH, check_same_thread=False)
     conn.row_factory = sqlite3.Row
-    conn.execute("PRAGMA foreign_keys = ON")
+    conn.execute("PRAGMA journal_mode=WAL")
+    conn.execute("PRAGMA foreign_keys=ON")
     conn.executescript(SCHEMA)
     return conn
 
