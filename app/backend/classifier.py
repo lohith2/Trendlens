@@ -15,7 +15,7 @@ import os
 import re
 from pathlib import Path
 
-from openai import OpenAI
+from openai import OpenAI, OpenAIError
 from pydantic import ValidationError
 
 from app.backend.prompts import CLASSIFICATION_SYSTEM_PROMPT, build_user_content
@@ -87,6 +87,11 @@ def classify_image(
                 return message.parsed
             raw = message.content or ""
             return parse_model_output(raw)
+        except OpenAIError as exc:
+            # auth/connection/API errors are not fixable by re-prompting, and
+            # the SDK's backoff already retried the transient ones; convert so
+            # the caller's failure path (status=failed) always runs
+            raise ClassificationError(f"model API call failed: {exc}") from exc
         except (ValidationError, json.JSONDecodeError) as exc:
             last_error = exc
             logger.warning(

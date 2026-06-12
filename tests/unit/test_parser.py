@@ -8,6 +8,8 @@ import json
 from types import SimpleNamespace
 from unittest.mock import Mock
 
+import httpx
+import openai
 import pytest
 from pydantic import ValidationError
 
@@ -121,6 +123,35 @@ class TestValidationRetry:
         attrs = classify_image(image_file, client=client)
 
         assert attrs is parsed
+
+
+def make_auth_error():
+    request = httpx.Request("POST", "https://api.openai.com/v1/chat/completions")
+    response = httpx.Response(401, request=request)
+    return openai.AuthenticationError(
+        "Incorrect API key provided", response=response, body=None
+    )
+
+
+class TestApiErrorHandling:
+    def test_sdk_error_becomes_classification_error(self, image_file):
+        client = make_client([make_auth_error()])
+
+        with pytest.raises(ClassificationError, match="Incorrect API key"):
+            classify_image(image_file, client=client)
+
+        # API errors must not burn validation retries
+        assert client.chat.completions.parse.call_count == 1
+
+    def test_sdk_error_marks_row_failed(self, image_file, tmp_path):
+        conn = db.get_connection(tmp_path / "test.db")
+        image_id = db.insert_image(conn, "garment.jpg")
+        client = make_client([make_auth_error()])
+
+        record = process_classification(conn, image_id, image_file, client=client)
+
+        assert record["status"] == "failed"
+        assert record["filename"] == "garment.jpg"
 
 
 class TestFailurePersistence:

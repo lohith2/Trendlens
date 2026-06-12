@@ -1,5 +1,7 @@
 """Trendlens API. Run from the repo root: uvicorn app.backend.main:app"""
+from dotenv import load_dotenv
 
+load_dotenv()
 import os
 import sqlite3
 import uuid
