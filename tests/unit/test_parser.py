@@ -146,6 +146,10 @@ class TestFailurePersistence:
 
         assert record["status"] == "classified"
         assert record["garment_type"] == "jacket"
+        assert record["style"] == "streetwear"
+        assert record["material"] == "denim"
+        assert record["pattern"] == "solid"
+        assert record["color_palette"] == "indigo,white"
         assert record["attributes"]["material"] == "denim"
         # description must land in the search index
         hit = conn.execute(

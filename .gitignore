@@ -12,6 +12,8 @@ dist/
 # app data (runtime, not source)
 uploads/
 *.db
+*.db-wal
+*.db-shm
 *.sqlite
 
 # env and secrets
