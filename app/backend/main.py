@@ -8,6 +8,8 @@ import uuid
 from pathlib import Path
 
 from fastapi import Depends, FastAPI, File, Form, HTTPException, UploadFile
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 from app.backend import db
 from app.backend.classifier import ClassificationError, classify_image
@@ -16,6 +18,18 @@ UPLOADS_DIR = Path(os.environ.get("TRENDLENS_UPLOADS", "uploads"))
 ALLOWED_SUFFIXES = {".jpg", ".jpeg", ".png", ".webp"}
 
 app = FastAPI(title="Trendlens")
+
+# the Vite dev server runs on a different origin during local development
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# uploaded images are served back to the grid as static files
+UPLOADS_DIR.mkdir(parents=True, exist_ok=True)
+app.mount("/uploads", StaticFiles(directory=UPLOADS_DIR), name="uploads")
 
 
 def get_db():
@@ -74,3 +88,44 @@ def retry_classification(
     if not image_path.exists():
         raise HTTPException(status_code=409, detail="stored image file is missing")
     return process_classification(conn, image_id, image_path)
+
+
+@app.get("/api/images")
+def list_images(
+    q: str | None = None,
+    garment_type: str | None = None,
+    season: str | None = None,
+    occasion: str | None = None,
+    style: str | None = None,
+    material: str | None = None,
+    pattern: str | None = None,
+    color: str | None = None,
+    designer: str | None = None,
+    continent: str | None = None,
+    country: str | None = None,
+    city: str | None = None,
+    year: int | None = None,
+    month: int | None = None,
+    conn: sqlite3.Connection = Depends(get_db),
+):
+    filters = {
+        "garment_type": garment_type,
+        "season": season,
+        "occasion": occasion,
+        "style": style,
+        "material": material,
+        "pattern": pattern,
+        "color": color,
+        "designer": designer,
+        "continent": continent,
+        "country": country,
+        "city": city,
+        "year": year,
+        "month": month,
+    }
+    return db.query_images(conn, filters, q)
+
+
+@app.get("/api/filters")
+def list_filters(conn: sqlite3.Connection = Depends(get_db)):
+    return db.get_filter_facets(conn)

@@ -7,6 +7,7 @@ rather than a source flag on shared rows.
 
 import json
 import os
+import re
 import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
@@ -14,6 +15,23 @@ from pathlib import Path
 from app.backend.schemas import GarmentAttributes
 
 DEFAULT_DB_PATH = Path(os.environ.get("TRENDLENS_DB", "trendlens.db"))
+
+# Columns the listing endpoint can filter on by equality. Fixed allowlist,
+# never user-supplied, so interpolating a name into SQL is safe here.
+FILTER_FIELDS = (
+    "garment_type",
+    "season",
+    "occasion",
+    "style",
+    "material",
+    "pattern",
+    "designer",
+    "continent",
+    "country",
+    "city",
+    "year",
+    "month",
+)
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS images (
@@ -134,11 +152,85 @@ def mark_image_failed(conn: sqlite3.Connection, image_id: int) -> None:
     conn.commit()
 
 
-def get_image(conn: sqlite3.Connection, image_id: int) -> dict | None:
-    row = conn.execute("SELECT * FROM images WHERE id = ?", (image_id,)).fetchone()
-    if row is None:
-        return None
+def _row_to_image(row: sqlite3.Row) -> dict:
     record = dict(row)
-    if record["attributes"]:
+    if record.get("attributes"):
         record["attributes"] = json.loads(record["attributes"])
     return record
+
+
+def get_image(conn: sqlite3.Connection, image_id: int) -> dict | None:
+    row = conn.execute("SELECT * FROM images WHERE id = ?", (image_id,)).fetchone()
+    return _row_to_image(row) if row is not None else None
+
+
+def _build_fts_match(q: str) -> str:
+    """Turn free user text into a safe FTS5 MATCH expression.
+
+    Tokens are reduced to word characters and given a prefix wildcard, so
+    "embroider" finds "embroidered" and stray punctuation can't produce a
+    MATCH syntax error. Multiple tokens are implicitly ANDed by FTS5.
+    """
+    tokens = re.findall(r"\w+", q.lower())
+    return " ".join(f"{token}*" for token in tokens)
+
+
+def query_images(
+    conn: sqlite3.Connection,
+    filters: dict | None = None,
+    q: str | None = None,
+) -> list[dict]:
+    filters = filters or {}
+    where: list[str] = []
+    params: list = []
+
+    for field in FILTER_FIELDS:
+        value = filters.get(field)
+        if value is not None and value != "":
+            where.append(f"{field} = ?")
+            params.append(value)
+
+    color = filters.get("color")
+    if color:
+        # color_palette is a comma-joined lowercase string; pad with commas so
+        # the match is on a whole token, not a substring ("red" != "redwood")
+        where.append("(',' || color_palette || ',') LIKE ?")
+        params.append(f"%,{color.lower()},%")
+
+    if q:
+        match = _build_fts_match(q)
+        if match:
+            where.append(
+                "id IN (SELECT image_id FROM images_fts WHERE images_fts MATCH ?)"
+            )
+            params.append(match)
+
+    sql = "SELECT * FROM images"
+    if where:
+        sql += " WHERE " + " AND ".join(where)
+    sql += " ORDER BY uploaded_at DESC, id DESC"
+    return [_row_to_image(row) for row in conn.execute(sql, params)]
+
+
+def get_filter_facets(conn: sqlite3.Connection) -> dict[str, list]:
+    """Distinct values per filterable field, generated from the data itself.
+
+    New attribute values become filter options automatically; nothing here
+    is hardcoded.
+    """
+    facets: dict[str, list] = {}
+    for field in FILTER_FIELDS:
+        rows = conn.execute(
+            f"SELECT DISTINCT {field} FROM images "
+            f"WHERE {field} IS NOT NULL AND {field} != '' ORDER BY {field}"
+        ).fetchall()
+        facets[field] = [row[0] for row in rows]
+
+    colors: set[str] = set()
+    for (palette,) in conn.execute(
+        "SELECT color_palette FROM images "
+        "WHERE color_palette IS NOT NULL AND color_palette != ''"
+    ):
+        colors.update(c for c in palette.split(",") if c)
+    facets["color"] = sorted(colors)
+    return facets
