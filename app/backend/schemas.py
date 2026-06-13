@@ -27,6 +27,7 @@ class GarmentType(str, Enum):
     SUIT = "suit"
     ACTIVEWEAR = "activewear"
     SWIMWEAR = "swimwear"
+    TRADITIONAL = "traditional_wear"
     OTHER = "other"
 
 
@@ -46,6 +47,7 @@ class Occasion(str, Enum):
     ATHLETIC = "athletic"
     EVENING = "evening"
     FESTIVAL = "festival"
+    CEREMONIAL = "ceremonial"
     OTHER = "other"
 
 

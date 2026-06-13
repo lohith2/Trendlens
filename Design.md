@@ -19,7 +19,7 @@ flowchart TB
         AnnotationPanel["AnnotationPanel.tsx"]
     end
 
-    subgraph BE["Backend - FastAPI, Python 3.12"]
+    subgraph BE["Backend - FastAPI, Python 3.11"]
         direction LR
         UploadRoute["POST /api/images"]
         ListRoute["GET /api/images"]
@@ -109,13 +109,16 @@ Closed vocabularies (enums) where evaluation needs exact matching; free text whe
 ```python
 class GarmentAttributes(BaseModel):
     description: str                      # rich natural language, FTS-indexed
-    garment_type: GarmentType             # enum: dress, jacket, trousers, ...
+    garment_type: GarmentType             # enum: dress, top, shirt, blouse, sweater, jacket,
+                                          #   coat, trousers, jeans, skirt, shorts, jumpsuit,
+                                          #   suit, activewear, swimwear, traditional_wear, other
     style: str                            # free text: "bohemian", "streetwear"
     material: str                         # free text: "denim", "linen blend"
     color_palette: list[str]              # ["indigo", "cream"]
     pattern: str                          # "floral print", "solid"
-    season: Season                        # enum: spring, summer, fall, winter, all_season
-    occasion: Occasion                    # enum: casual, formal, business, athletic, evening, festival
+    season: Season                        # enum: spring, summer, fall, winter, all_season, other
+    occasion: Occasion                    # enum: casual, formal, business, athletic, evening,
+                                          #   festival, ceremonial, other
     consumer_profile: str                 # free text
     trend_notes: str                      # free text
     location_context: LocationContext     # continent/country/city, each Optional
