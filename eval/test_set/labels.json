@@ -1,0 +1,994 @@
+{
+  "street_10365761.jpg": {
+    "color": [
+      "black"
+    ],
+    "garment_type": "jacket",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [
+      "polyester"
+    ],
+    "occasion": "casual",
+    "season": "winter",
+    "source": "street",
+    "style": [
+      "casual"
+    ]
+  },
+  "street_14558130.jpg": {
+    "color": [
+      "black"
+    ],
+    "garment_type": "activewear",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [
+      "nylon"
+    ],
+    "occasion": "athletic",
+    "season": "all_season",
+    "source": "street",
+    "style": [
+      "sportswear"
+    ]
+  },
+  "street_15390867.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_15397411.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_16265660.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_16586906.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_17086258.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_17668938.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_18398555.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_18991004.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_19320411.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_19575729.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_19714799.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_19800418.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_20064883.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_20891131.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_20891132.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_21835288.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_23440284.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_24553821.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_27333547.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_29516642.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_31649718.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_33082152.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_33130568.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_34251604.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_34544422.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_34668157.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_35069469.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_35564439.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_36400879.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_36725930.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_37439727.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_37735142.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_3996788.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_4615702.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_6468424.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_6764939.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_6764954.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_6764990.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_6765652.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_7929612.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_8489695.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_8489768.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "street_943469.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "street",
+    "style": []
+  },
+  "studio_10133742.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "studio",
+    "style": []
+  },
+  "studio_10895404.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "studio",
+    "style": []
+  },
+  "studio_11485035.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "studio",
+    "style": []
+  },
+  "studio_12433025.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "studio",
+    "style": []
+  },
+  "studio_14469827.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "studio",
+    "style": []
+  },
+  "studio_17023685.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "studio",
+    "style": []
+  },
+  "studio_19895960.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "studio",
+    "style": []
+  },
+  "studio_20440143.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "studio",
+    "style": []
+  },
+  "studio_26050629.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "studio",
+    "style": []
+  },
+  "studio_26601193.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "studio",
+    "style": []
+  },
+  "studio_27641317.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "studio",
+    "style": []
+  },
+  "studio_28168163.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "studio",
+    "style": []
+  },
+  "studio_30590661.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "studio",
+    "style": []
+  },
+  "studio_31046828.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "studio",
+    "style": []
+  },
+  "studio_31046829.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "studio",
+    "style": []
+  },
+  "studio_35026909.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "studio",
+    "style": []
+  },
+  "studio_36388576.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "studio",
+    "style": []
+  },
+  "studio_36854075.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "studio",
+    "style": []
+  },
+  "studio_7752676.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "studio",
+    "style": []
+  },
+  "studio_7764611.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "studio",
+    "style": []
+  },
+  "studio_9218524.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "studio",
+    "style": []
+  },
+  "studio_9218536.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "studio",
+    "style": []
+  },
+  "studio_9558265.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "studio",
+    "style": []
+  },
+  "studio_9558761.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "studio",
+    "style": []
+  },
+  "studio_9594147.jpg": {
+    "color": [],
+    "garment_type": "",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [],
+    "occasion": "",
+    "season": "",
+    "source": "studio",
+    "style": []
+  }
+}
