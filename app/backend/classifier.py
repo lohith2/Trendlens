@@ -25,6 +25,10 @@ logger = logging.getLogger(__name__)
 
 DEFAULT_MODEL = "gpt-4o-mini"
 MAX_VALIDATION_RETRIES = 2
+# Cap each attempt so a stalled connection fails fast into the status="failed"
+# path instead of hanging the synchronous upload. The SDK's default is 600s,
+# which on a cold/IPv6 connect can leave the UI spinning for minutes.
+REQUEST_TIMEOUT_SECONDS = 30.0
 
 _FENCE_RE = re.compile(r"```(?:json)?\s*(.*?)\s*```", re.DOTALL)
 
@@ -51,7 +55,7 @@ def parse_model_output(text: str) -> GarmentAttributes:
 
 
 def get_client() -> OpenAI:
-    return OpenAI(max_retries=3)
+    return OpenAI(timeout=REQUEST_TIMEOUT_SECONDS, max_retries=3)
 
 
 def _encode_image(image_path: Path) -> tuple[str, str]:

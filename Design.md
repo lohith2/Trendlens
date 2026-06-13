@@ -173,14 +173,14 @@ Frequently filtered attributes are promoted to real columns; the full payload is
 
 ## 6. Evaluation Methodology
 
-Test set: ~70 images from two sources, unified under one labeling schema in `eval/test_set/labels.json`:
+Test set: ~70 images from the Pexels API in two difficulty tiers, unified under one labeling schema in `eval/test_set/labels.json`:
 
-| Source | Count | Labels |
-|---|---|---|
-| Pexels API (street fashion, in-the-wild) | ~45 | fully hand-labeled |
-| Kaggle Fashion Product Images (studio) | ~25 | pre-labeled (type, color, season, occasion), gaps filled manually |
+| Tier | Count | Source | Labels |
+|---|---|---|---|
+| street (in-the-wild) | ~45 | Pexels — varied regions, lighting, occlusion, layering | hand-labeled |
+| studio (clean) | ~25 | Pexels — plain-background product / model shots | hand-labeled |
 
-Each image is tagged `source: street | studio`, giving two natural difficulty tiers.
+Both tiers come from Pexels via `eval/fetch_pexels.py --source {street\|studio}` (separate query sets), each image tagged `source: street \| studio`. All ground truth is hand-labeled — no model-generated labels, to avoid biasing the eval against the thing it measures.
 
 Matching rules, per attribute class:
 - Enum fields (garment_type, season, occasion): exact match
