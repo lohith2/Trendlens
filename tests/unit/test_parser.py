@@ -17,6 +17,7 @@ from app.backend import db
 from app.backend.classifier import (
     ClassificationError,
     classify_image,
+    get_client,
     parse_model_output,
 )
 from app.backend.main import process_classification
@@ -57,6 +58,16 @@ def image_file(tmp_path):
     path = tmp_path / "garment.jpg"
     path.write_bytes(b"\xff\xd8\xff fake jpeg bytes")
     return path
+
+
+class TestClientConfig:
+    def test_client_has_bounded_timeout_and_retries(self, monkeypatch):
+        # an unbounded default timeout means a stalled connect can hang an
+        # upload for minutes; the client must cap each attempt instead.
+        monkeypatch.setenv("OPENAI_API_KEY", "sk-test-placeholder")
+        client = get_client()
+        assert client.timeout == 30.0
+        assert client.max_retries == 3
 
 
 class TestParseModelOutput:
