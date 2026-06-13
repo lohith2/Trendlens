@@ -6,7 +6,7 @@ an OTHER escape hatch so the model is never forced into a wrong label.
 """
 
 from enum import Enum
-from typing import Optional
+from typing import Literal, Optional
 
 from pydantic import BaseModel, Field
 
@@ -110,3 +110,11 @@ class GarmentAttributes(BaseModel):
             "Location evidenced in the image. Use nulls unless the evidence is clear."
         ),
     )
+
+
+class AnnotationIn(BaseModel):
+    """Designer-supplied annotation. Distinct from AI output by living in its
+    own table; `kind` separates quick tags from longer notes."""
+
+    kind: Literal["tag", "note"]
+    content: str = Field(..., min_length=1)

@@ -234,3 +234,34 @@ def get_filter_facets(conn: sqlite3.Connection) -> dict[str, list]:
         colors.update(c for c in palette.split(",") if c)
     facets["color"] = sorted(colors)
     return facets
+
+
+def add_annotation(
+    conn: sqlite3.Connection, image_id: int, kind: str, content: str
+) -> dict:
+    now = datetime.now(timezone.utc).isoformat()
+    cur = conn.execute(
+        "INSERT INTO annotations (image_id, kind, content, created_at)"
+        " VALUES (?, ?, ?, ?)",
+        (image_id, kind, content, now),
+    )
+    conn.execute(
+        "INSERT INTO images_fts (content, image_id, kind) VALUES (?, ?, ?)",
+        (content, image_id, kind),
+    )
+    conn.commit()
+    return {
+        "id": cur.lastrowid,
+        "image_id": image_id,
+        "kind": kind,
+        "content": content,
+        "created_at": now,
+    }
+
+
+def get_annotations(conn: sqlite3.Connection, image_id: int) -> list[dict]:
+    rows = conn.execute(
+        "SELECT * FROM annotations WHERE image_id = ? ORDER BY created_at, id",
+        (image_id,),
+    ).fetchall()
+    return [dict(row) for row in rows]

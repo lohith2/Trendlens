@@ -13,6 +13,7 @@ from fastapi.staticfiles import StaticFiles
 
 from app.backend import db
 from app.backend.classifier import ClassificationError, classify_image
+from app.backend.schemas import AnnotationIn
 
 UPLOADS_DIR = Path(os.environ.get("TRENDLENS_UPLOADS", "uploads"))
 ALLOWED_SUFFIXES = {".jpg", ".jpeg", ".png", ".webp"}
@@ -129,3 +130,28 @@ def list_images(
 @app.get("/api/filters")
 def list_filters(conn: sqlite3.Connection = Depends(get_db)):
     return db.get_filter_facets(conn)
+
+
+@app.get("/api/images/{image_id}")
+def get_image_detail(image_id: int, conn: sqlite3.Connection = Depends(get_db)):
+    image = db.get_image(conn, image_id)
+    if image is None:
+        raise HTTPException(status_code=404, detail="image not found")
+    image["annotations"] = db.get_annotations(conn, image_id)
+    return image
+
+
+@app.get("/api/images/{image_id}/annotations")
+def list_annotations(image_id: int, conn: sqlite3.Connection = Depends(get_db)):
+    return db.get_annotations(conn, image_id)
+
+
+@app.post("/api/images/{image_id}/annotations", status_code=201)
+def create_annotation(
+    image_id: int,
+    payload: AnnotationIn,
+    conn: sqlite3.Connection = Depends(get_db),
+):
+    if db.get_image(conn, image_id) is None:
+        raise HTTPException(status_code=404, detail="image not found")
+    return db.add_annotation(conn, image_id, payload.kind, payload.content)
