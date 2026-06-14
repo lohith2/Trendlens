@@ -12,11 +12,11 @@ Core workflow: upload a garment photo, an AI model classifies it into rich struc
 flowchart TB
     subgraph FE["Frontend - React 18 + Vite"]
         direction LR
-        UploadModal["UploadModal.tsx"]
-        SearchBar["SearchBar.tsx"]
-        FilterSidebar["FilterSidebar.tsx"]
-        ImageGrid["ImageGrid.tsx"]
-        AnnotationPanel["AnnotationPanel.tsx"]
+        UploadModal["UploadModal.jsx"]
+        SearchBar["SearchBar.jsx"]
+        FilterSidebar["FilterSidebar.jsx"]
+        ImageGrid["ImageGrid.jsx"]
+        DetailPanel["DetailPanel.jsx"]
     end
 
     subgraph BE["Backend - FastAPI, Python 3.11"]
@@ -44,7 +44,7 @@ flowchart TB
     SearchBar --> ListRoute
     FilterSidebar --> FacetsRoute
     ImageGrid --> ListRoute
-    AnnotationPanel --> AnnotRoute
+    DetailPanel --> AnnotRoute
 
     UploadRoute --> Files
     UploadRoute --> Classifier
@@ -109,9 +109,10 @@ Closed vocabularies (enums) where evaluation needs exact matching; free text whe
 ```python
 class GarmentAttributes(BaseModel):
     description: str                      # rich natural language, FTS-indexed
-    garment_type: GarmentType             # enum: dress, top, shirt, blouse, sweater, jacket,
-                                          #   coat, trousers, jeans, skirt, shorts, jumpsuit,
-                                          #   suit, activewear, swimwear, traditional_wear, other
+    garment_type: GarmentType             # enum: dress, top, t_shirt, shirt, blouse, sweater,
+                                          #   hoodie, jacket, blazer, coat, trousers, jeans, skirt,
+                                          #   shorts, jumpsuit, suit, activewear, swimwear,
+                                          #   traditional_wear, other
     style: str                            # free text: "bohemian", "streetwear"
     material: str                         # free text: "denim", "linen blend"
     color_palette: list[str]              # ["indigo", "cream"]
@@ -169,35 +170,63 @@ Frequently filtered attributes are promoted to real columns; the full payload is
 - **Attribute filters:** SQL WHERE over promoted columns. Filter options are generated at request time from `SELECT DISTINCT` over the actual data (`GET /api/filters`), never hardcoded. New attribute values appear as filter options automatically.
 - **Contextual filters:** location (continent/country/city), time (year/month/season), designer. Same mechanism.
 - **Full-text search:** FTS5 over descriptions and annotations handles queries like "embroidered neckline" or "artisan market". Lexical search is sufficient because the LLM already did the semantic work at upload time, converting visual content into searchable text.
-- **Why no vector DB:** both retrieval modes here are exact-match filtering and keyword search. Embeddings earn their complexity for similarity queries ("find looks like this one"), which is the natural v2 (see section 8) but out of PoC scope. Adding one now would be infrastructure without a requirement.
+- **Why no vector DB:** both retrieval modes here are exact-match filtering and keyword search. Embeddings earn their complexity for similarity queries ("find looks like this one"), which is the natural v2 (see section 9) but out of PoC scope. Adding one now would be infrastructure without a requirement.
 
 ## 6. Evaluation Methodology
 
-Test set: ~70 images from the Pexels API in two difficulty tiers, unified under one labeling schema in `eval/test_set/labels.json`:
+Test set: 73 hand-labeled images sourced via the Pexels API in two difficulty tiers, unified under one labeling schema in `eval/test_set/labels.json`:
 
 | Tier | Count | Source | Labels |
 |---|---|---|---|
-| street (in-the-wild) | ~45 | Pexels — varied regions, lighting, occlusion, layering | hand-labeled |
-| studio (clean) | ~25 | Pexels — plain-background product / model shots | hand-labeled |
+| street (in-the-wild) | 54 | Pexels — varied regions, lighting, occlusion, layering | hand-labeled |
+| studio (clean) | 19 | Pexels — plain-background product / model shots | hand-labeled |
 
-Both tiers come from Pexels via `eval/fetch_pexels.py --source {street\|studio}` (separate query sets), each image tagged `source: street \| studio`. All ground truth is hand-labeled — no model-generated labels, to avoid biasing the eval against the thing it measures.
+Images are fetched via `eval/fetch_pexels.py --source {street\|studio}` (separate query sets) and each is tagged `source: street \| studio`. All ground truth is hand-labeled — no model-generated labels, to avoid biasing the eval against the thing it measures.
 
-Matching rules, per attribute class:
-- Enum fields (garment_type, season, occasion): exact match
-- Free-text fields (style, material): normalized synonym match (e.g. "denim" matches "jean")
-- location_context: correct if predicted region matches label, or if model returns null when label is unknown
+Matching rules, per attribute class (full detail in `eval/README.md`):
+- **Enum** (garment_type, season, occasion): normalized exact match.
+- **Free text** (style, material): the label is a *list* of acceptable answers; a prediction matches if it equals, contains, or is contained by any of them. Synonym lists are widened by rule (e.g. `synthetic` accepted wherever a specific synthetic fiber is labeled), applied blind to model predictions.
+- **Color**: set *overlap* (not exact equality), with spelling/shade variants canonicalized first (`gray`→`grey`, `burgundy`→`maroon`).
+- **location_context**: a non-null label matches fuzzily; a null label requires the model to also return null — a confabulated location is penalized.
 
-`eval/run_eval.py` runs the classifier over the set and writes a per-attribute accuracy table to `eval/results.md`, split by source tier, for both gpt-4o-mini and gpt-4o.
+`eval/run_eval.py` runs the classifier over the set and writes a per-attribute accuracy table to `eval/results.md`, split by source tier, for both gpt-4o-mini and gpt-4o. Predictions are cached per model, so re-scoring after a labeling change is free.
 
 ### Results summary
 
-> TODO after eval run: per-attribute table, street vs studio split, mini vs flagship delta.
+Overall per-attribute accuracy (correct / scored):
+
+| Attribute | gpt-4o-mini | gpt-4o |
+|---|---|---|
+| garment_type | 78% | **84%** |
+| season | 55% | **62%** |
+| occasion | **78%** | 74% |
+| style | **64%** | 53% |
+| material | 64% | **68%** |
+| color | 77% | **79%** |
+| continent | 95% | 95% |
+| country | 96% | 96% |
+
+Difficulty split holds as expected: on the perception-bound attributes, studio (clean, isolated) beats street (occlusion, layering) — e.g. garment_type is 89–95% on studio vs 72–81% on street, and both models score 100% on location for studio (correctly null) vs ~93–94% on street.
 
 ### Analysis
 
-> TODO after eval run. Expected shape: strong on visually grounded attributes (garment type, color), weaker on material (texture from photos is hard) and location (insufficient signal in pixels; the real fix is EXIF or user-supplied location at upload, not a better prompt).
+- **gpt-4o-mini is the right default.** The flagship's edge on the objective attributes is modest (garment_type +6pts, color +2pts) for several times the per-image cost and latency — and at this product's scale (thousands of field photos per team), cost and latency dominate. The eval justifies the default rather than assuming it.
+- **The style/occasion inversion is a measurement artifact, not a capability gap.** gpt-4o scores *lower* there because it reaches for more specific descriptors (`athleisure`, `smart casual`, `ceremonial`) that miss the more literal hand-label synonym lists — i.e. the labels under-credit correct-but-precise answers, not the model.
+- **`season` has a low ceiling by nature.** Most misses are boundary calls (`fall`↔`winter`, `summer`↔`all_season`) where model and labeler can each be defensibly right; it is a single-best enum, so there is no synonym list to widen.
+- **`material` has a real perceptual ceiling.** Fiber content largely isn't visible in a photo, so generic guesses (`lightweight fabric`, `*-blend`) are common; this is a genuine limit of the medium, not the prompt.
+- **`occasion` has a known label limitation.** On all 7 traditional-wear images labeled `festival`, both models unanimously choose `ceremonial` (a valid enum value) — arguably the better label. These are counted as misses here; the labels are deliberately left unchanged rather than relabeled toward the model, and the festival/ceremonial distinction is a flagged labeling-guidance item.
 
-## 7. Trade-offs and Simplifying Assumptions
+## 7. Testing
+
+Three layers, all runnable locally with no external API calls:
+
+- **Unit** (`tests/unit/`) — the schema/parser surface: defensive JSON parsing, enum coercion, the validation contract.
+- **Integration** (`tests/integration/`) — the API over a throwaway SQLite DB seeded straight through the data layer (classifier not involved): attribute/designer/location/time filters, the whole-token color rule, combined filters, and FTS search over descriptions and annotations.
+- **End-to-end** (`tests/e2e/`, Playwright) — the real UI driven in a browser: grid load, filtering, search, detail panel + annotation, and upload. The backend boots against a seeded throwaway DB with the **vision classifier monkeypatched in the test launcher** (not behind a production flag), so the upload flow runs end-to-end without calling OpenAI.
+
+Current coverage: 40 unit + integration tests (pytest) and 6 e2e journeys (Playwright), all green. The classifier's *quality* is tracked separately by the eval harness (section 6) — a measurement, not a pass/fail gate.
+
+## 8. Trade-offs and Simplifying Assumptions
 
 | Decision | Alternative | Why |
 |---|---|---|
@@ -207,7 +236,7 @@ Matching rules, per attribute class:
 | gpt-4o-mini default | Flagship model | Perception task, largely saturated for small models. Eval measures the delta instead of assuming. |
 | Local file storage | S3 | PoC scope. Path abstraction in code makes the swap mechanical. |
 
-## 8. Limitations and Next Steps
+## 9. Limitations and Next Steps
 
 - **Batch upload + async queue:** current sync flow blocks per image.
 - **Embedding-based similarity:** "find looks like this" via CLIP image embeddings, and semantic text search for queries like "bohemian summer vibes" that share no keywords with descriptions. This is where a vector index becomes justified.
