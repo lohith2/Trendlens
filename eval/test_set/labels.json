@@ -10,7 +10,8 @@
       "country": null
     },
     "material": [
-      "polyester"
+      "polyester",
+      "synthetic"
     ],
     "occasion": "casual",
     "season": "winter",
@@ -30,965 +31,1582 @@
       "country": null
     },
     "material": [
-      "nylon"
+      "nylon",
+      "synthetic"
     ],
     "occasion": "athletic",
     "season": "all_season",
     "source": "street",
     "style": [
-      "sportswear"
+      "sportswear",
+      "athletic",
+      "sporty",
+      "athleisure"
     ]
   },
   "street_15390867.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "purple"
+    ],
+    "garment_type": "activewear",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "nylon",
+      "polyester",
+      "synthetic"
+    ],
+    "occasion": "athletic",
+    "season": "all_season",
     "source": "street",
-    "style": []
+    "style": [
+      "sportswear",
+      "athletic",
+      "sporty",
+      "athleisure"
+    ]
   },
   "street_15397411.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "brown"
+    ],
+    "garment_type": "coat",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "knit",
+      "wool"
+    ],
+    "occasion": "casual",
+    "season": "winter",
     "source": "street",
-    "style": []
+    "style": [
+      "streetwear"
+    ]
   },
   "street_16265660.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "grey"
+    ],
+    "garment_type": "blazer",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "wool"
+    ],
+    "occasion": "business",
+    "season": "all_season",
     "source": "street",
-    "style": []
+    "style": [
+      "professional"
+    ]
   },
   "street_16586906.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "white"
+    ],
+    "garment_type": "jacket",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "synthetic"
+    ],
+    "occasion": "casual",
+    "season": "all_season",
     "source": "street",
-    "style": []
+    "style": [
+      "streetwear"
+    ]
   },
   "street_17086258.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "white"
+    ],
+    "garment_type": "shirt",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "cotton"
+    ],
+    "occasion": "casual",
+    "season": "summer",
     "source": "street",
-    "style": []
+    "style": [
+      "minimalist"
+    ]
   },
   "street_17668938.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "white"
+    ],
+    "garment_type": "shirt",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "cotton"
+    ],
+    "occasion": "formal",
+    "season": "all_season",
     "source": "street",
-    "style": []
+    "style": [
+      "professional"
+    ]
   },
   "street_18398555.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "white"
+    ],
+    "garment_type": "dress",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "lace",
+      "cotton"
+    ],
+    "occasion": "casual",
+    "season": "summer",
     "source": "street",
-    "style": []
+    "style": [
+      "romantic",
+      "feminine"
+    ]
   },
   "street_18991004.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "pink"
+    ],
+    "garment_type": "activewear",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "nylon",
+      "synthetic"
+    ],
+    "occasion": "athletic",
+    "season": "all_season",
     "source": "street",
-    "style": []
+    "style": [
+      "athleisure",
+      "sportswear",
+      "athletic",
+      "sporty"
+    ]
   },
   "street_19320411.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "pink"
+    ],
+    "garment_type": "dress",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "cotton"
+    ],
+    "occasion": "casual",
+    "season": "summer",
     "source": "street",
-    "style": []
+    "style": [
+      "floral",
+      "feminine"
+    ]
   },
   "street_19575729.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "beige",
+      "brown"
+    ],
+    "garment_type": "skirt",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "cotton",
+      "polyester",
+      "synthetic"
+    ],
+    "occasion": "casual",
+    "season": "fall",
     "source": "street",
-    "style": []
+    "style": [
+      "vintage"
+    ]
   },
   "street_19714799.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "white"
+    ],
+    "garment_type": "dress",
     "location_context": {
       "city": null,
-      "continent": null,
-      "country": null
+      "continent": "Asia",
+      "country": "Japan"
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "wool"
+    ],
+    "occasion": "casual",
+    "season": "winter",
     "source": "street",
-    "style": []
+    "style": [
+      "streetwear"
+    ]
   },
   "street_19800418.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "brown"
+    ],
+    "garment_type": "coat",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "cotton"
+    ],
+    "occasion": "casual",
+    "season": "all_season",
     "source": "street",
-    "style": []
+    "style": [
+      "streetwear"
+    ]
   },
   "street_20064883.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "black"
+    ],
+    "garment_type": "coat",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "synthetic"
+    ],
+    "occasion": "casual",
+    "season": "winter",
     "source": "street",
-    "style": []
+    "style": [
+      "streetwear"
+    ]
   },
   "street_20891131.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "green"
+    ],
+    "garment_type": "skirt",
     "location_context": {
       "city": null,
-      "continent": null,
-      "country": null
+      "continent": "Asia",
+      "country": "Japan"
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "nylon",
+      "synthetic"
+    ],
+    "occasion": "casual",
+    "season": "fall",
     "source": "street",
-    "style": []
+    "style": [
+      "experimental",
+      "avant-garde"
+    ]
   },
   "street_20891132.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "grey"
+    ],
+    "garment_type": "skirt",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "nylon",
+      "synthetic"
+    ],
+    "occasion": "casual",
+    "season": "fall",
     "source": "street",
-    "style": []
+    "style": [
+      "experimental",
+      "avant-garde"
+    ]
   },
   "street_21835288.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "grey"
+    ],
+    "garment_type": "coat",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "wool"
+    ],
+    "occasion": "business",
+    "season": "winter",
     "source": "street",
-    "style": []
+    "style": [
+      "professional"
+    ]
   },
   "street_23440284.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "white"
+    ],
+    "garment_type": "coat",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "wool"
+    ],
+    "occasion": "casual",
+    "season": "winter",
     "source": "street",
-    "style": []
+    "style": [
+      "streetwear"
+    ]
   },
   "street_24553821.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "black"
+    ],
+    "garment_type": "jacket",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "cotton",
+      "polyester",
+      "synthetic"
+    ],
+    "occasion": "casual",
+    "season": "fall",
     "source": "street",
-    "style": []
+    "style": [
+      "streetwear",
+      "casual"
+    ]
   },
   "street_27333547.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "blue"
+    ],
+    "garment_type": "dress",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "cotton"
+    ],
+    "occasion": "casual",
+    "season": "all_season",
     "source": "street",
-    "style": []
+    "style": [
+      "casual"
+    ]
   },
   "street_29516642.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "brown"
+    ],
+    "garment_type": "jacket",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "leather"
+    ],
+    "occasion": "casual",
+    "season": "fall",
     "source": "street",
-    "style": []
+    "style": [
+      "casual"
+    ]
   },
   "street_31649718.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "white"
+    ],
+    "garment_type": "dress",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "cotton"
+    ],
+    "occasion": "casual",
+    "season": "summer",
     "source": "street",
-    "style": []
+    "style": [
+      "tropical"
+    ]
   },
   "street_33082152.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "orange"
+    ],
+    "garment_type": "activewear",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "polyester",
+      "synthetic"
+    ],
+    "occasion": "athletic",
+    "season": "all_season",
     "source": "street",
-    "style": []
+    "style": [
+      "sportswear",
+      "athletic",
+      "sporty",
+      "athleisure"
+    ]
   },
   "street_33130568.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "yellow",
+      "red",
+      "blue"
+    ],
+    "garment_type": "traditional_wear",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "cotton",
+      "silk"
+    ],
+    "occasion": "festival",
+    "season": "all_season",
     "source": "street",
-    "style": []
+    "style": [
+      "traditional",
+      "ceremonial"
+    ]
   },
   "street_34251604.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "orange",
+      "cream"
+    ],
+    "garment_type": "traditional_wear",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "silk",
+      "cotton"
+    ],
+    "occasion": "festival",
+    "season": "all_season",
     "source": "street",
-    "style": []
+    "style": [
+      "traditional",
+      "ethnic"
+    ]
   },
   "street_34544422.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "black",
+      "white"
+    ],
+    "garment_type": "skirt",
     "location_context": {
       "city": null,
-      "continent": null,
-      "country": null
+      "continent": "Asia",
+      "country": "Japan"
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "polyester",
+      "synthetic"
+    ],
+    "occasion": "casual",
+    "season": "summer",
     "source": "street",
-    "style": []
+    "style": [
+      "casual"
+    ]
   },
   "street_34668157.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "brown",
+      "red",
+      "blue"
+    ],
+    "garment_type": "coat",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "synthetic"
+    ],
+    "occasion": "casual",
+    "season": "fall",
     "source": "street",
-    "style": []
+    "style": [
+      "casual"
+    ]
   },
   "street_35069469.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "white",
+      "black",
+      "green",
+      "orange"
+    ],
+    "garment_type": "traditional_wear",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "cotton",
+      "wool"
+    ],
+    "occasion": "festival",
+    "season": "all_season",
     "source": "street",
-    "style": []
+    "style": [
+      "traditional"
+    ]
   },
   "street_35564439.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "black",
+      "orange"
+    ],
+    "garment_type": "dress",
     "location_context": {
       "city": null,
-      "continent": null,
+      "continent": "Africa",
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "cotton"
+    ],
+    "occasion": "casual",
+    "season": "all_season",
     "source": "street",
-    "style": []
+    "style": [
+      "streetwear"
+    ]
   },
   "street_36400879.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "white",
+      "blue"
+    ],
+    "garment_type": "sweater",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "wool",
+      "silk"
+    ],
+    "occasion": "casual",
+    "season": "winter",
     "source": "street",
-    "style": []
+    "style": [
+      "casual"
+    ]
   },
   "street_36725930.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "brown",
+      "white",
+      "grey"
+    ],
+    "garment_type": "activewear",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "nylon",
+      "cotton",
+      "synthetic"
+    ],
+    "occasion": "athletic",
+    "season": "all_season",
     "source": "street",
-    "style": []
+    "style": [
+      "sportswear",
+      "athletic",
+      "sporty",
+      "athleisure"
+    ]
   },
   "street_37439727.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "white",
+      "brown"
+    ],
+    "garment_type": "traditional_wear",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "cotton",
+      "silk"
+    ],
+    "occasion": "festival",
+    "season": "all_season",
     "source": "street",
-    "style": []
+    "style": [
+      "ceremonial"
+    ]
   },
   "street_37735142.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "brown"
+    ],
+    "garment_type": "dress",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "cotton"
+    ],
+    "occasion": "casual",
+    "season": "all_season",
     "source": "street",
-    "style": []
+    "style": [
+      "casual"
+    ]
   },
   "street_3996788.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "white",
+      "brown",
+      "blue"
+    ],
+    "garment_type": "jacket",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "wool",
+      "denim"
+    ],
+    "occasion": "casual",
+    "season": "winter",
     "source": "street",
-    "style": []
+    "style": [
+      "casual"
+    ]
   },
   "street_4615702.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "grey",
+      "purple",
+      "green"
+    ],
+    "garment_type": "dress",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "cotton"
+    ],
+    "occasion": "casual",
+    "season": "fall",
     "source": "street",
-    "style": []
+    "style": [
+      "experimental",
+      "avant-garde"
+    ]
   },
   "street_6468424.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "green",
+      "yellow"
+    ],
+    "garment_type": "traditional_wear",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "cotton"
+    ],
+    "occasion": "casual",
+    "season": "all_season",
     "source": "street",
-    "style": []
+    "style": [
+      "ethnic",
+      "traditional"
+    ]
   },
   "street_6764939.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "grey",
+      "navy"
+    ],
+    "garment_type": "suit",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "wool"
+    ],
+    "occasion": "business",
+    "season": "fall",
     "source": "street",
-    "style": []
+    "style": [
+      "formal",
+      "tailored"
+    ]
   },
   "street_6764954.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "black",
+      "white"
+    ],
+    "garment_type": "blazer",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "wool"
+    ],
+    "occasion": "formal",
+    "season": "all_season",
     "source": "street",
-    "style": []
+    "style": [
+      "formal",
+      "tailored"
+    ]
   },
   "street_6764990.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "black",
+      "white"
+    ],
+    "garment_type": "blazer",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "wool"
+    ],
+    "occasion": "formal",
+    "season": "all_season",
     "source": "street",
-    "style": []
+    "style": [
+      "formal",
+      "tailored"
+    ]
   },
   "street_6765652.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "grey",
+      "brown"
+    ],
+    "garment_type": "suit",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "wool"
+    ],
+    "occasion": "business",
+    "season": "all_season",
     "source": "street",
-    "style": []
+    "style": [
+      "formal",
+      "tailored"
+    ]
   },
   "street_7929612.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "green",
+      "blue"
+    ],
+    "garment_type": "coat",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "wool"
+    ],
+    "occasion": "casual",
+    "season": "winter",
     "source": "street",
-    "style": []
+    "style": [
+      "casual",
+      "minimalist"
+    ]
   },
   "street_8489695.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "red",
+      "yellow",
+      "green"
+    ],
+    "garment_type": "traditional_wear",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "silk",
+      "cotton"
+    ],
+    "occasion": "festival",
+    "season": "all_season",
     "source": "street",
-    "style": []
+    "style": [
+      "traditional",
+      "ethnic"
+    ]
   },
   "street_8489768.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "red",
+      "yellow",
+      "gold"
+    ],
+    "garment_type": "traditional_wear",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "silk",
+      "cotton"
+    ],
+    "occasion": "festival",
+    "season": "all_season",
     "source": "street",
-    "style": []
+    "style": [
+      "traditional",
+      "ethnic"
+    ]
   },
   "street_943469.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "blue",
+      "orange",
+      "yellow"
+    ],
+    "garment_type": "dress",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "cotton"
+    ],
+    "occasion": "casual",
+    "season": "all_season",
     "source": "street",
-    "style": []
-  },
-  "studio_10133742.jpg": {
-    "color": [],
-    "garment_type": "",
-    "location_context": {
-      "city": null,
-      "continent": null,
-      "country": null
-    },
-    "material": [],
-    "occasion": "",
-    "season": "",
-    "source": "studio",
-    "style": []
+    "style": [
+      "ethnic",
+      "traditional"
+    ]
   },
   "studio_10895404.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "grey"
+    ],
+    "garment_type": "jacket",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "nylon",
+      "polyester",
+      "synthetic"
+    ],
+    "occasion": "casual",
+    "season": "winter",
     "source": "studio",
-    "style": []
+    "style": [
+      "casual",
+      "sporty"
+    ]
   },
   "studio_11485035.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "green",
+      "orange"
+    ],
+    "garment_type": "shirt",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "cotton"
+    ],
+    "occasion": "casual",
+    "season": "summer",
     "source": "studio",
-    "style": []
+    "style": [
+      "casual"
+    ]
   },
   "studio_12433025.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "black",
+      "white",
+      "brown"
+    ],
+    "garment_type": "dress",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "polyester",
+      "synthetic"
+    ],
+    "occasion": "casual",
+    "season": "all_season",
     "source": "studio",
-    "style": []
+    "style": [
+      "minimalist",
+      "casual"
+    ]
   },
   "studio_14469827.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "light blue"
+    ],
+    "garment_type": "jeans",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "denim"
+    ],
+    "occasion": "casual",
+    "season": "summer",
     "source": "studio",
-    "style": []
+    "style": [
+      "casual"
+    ]
   },
   "studio_17023685.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "white"
+    ],
+    "garment_type": "dress",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "cotton",
+      "polyester",
+      "synthetic"
+    ],
+    "occasion": "evening",
+    "season": "summer",
     "source": "studio",
-    "style": []
+    "style": [
+      "elegant",
+      "feminine"
+    ]
   },
   "studio_19895960.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "maroon"
+    ],
+    "garment_type": "dress",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "polyester",
+      "rayon",
+      "synthetic"
+    ],
+    "occasion": "casual",
+    "season": "summer",
     "source": "studio",
-    "style": []
+    "style": [
+      "draped",
+      "minimalist"
+    ]
   },
   "studio_20440143.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "olive",
+      "navy"
+    ],
+    "garment_type": "blazer",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "wool",
+      "cotton"
+    ],
+    "occasion": "business",
+    "season": "all_season",
     "source": "studio",
-    "style": []
-  },
-  "studio_26050629.jpg": {
-    "color": [],
-    "garment_type": "",
-    "location_context": {
-      "city": null,
-      "continent": null,
-      "country": null
-    },
-    "material": [],
-    "occasion": "",
-    "season": "",
-    "source": "studio",
-    "style": []
-  },
-  "studio_26601193.jpg": {
-    "color": [],
-    "garment_type": "",
-    "location_context": {
-      "city": null,
-      "continent": null,
-      "country": null
-    },
-    "material": [],
-    "occasion": "",
-    "season": "",
-    "source": "studio",
-    "style": []
-  },
-  "studio_27641317.jpg": {
-    "color": [],
-    "garment_type": "",
-    "location_context": {
-      "city": null,
-      "continent": null,
-      "country": null
-    },
-    "material": [],
-    "occasion": "",
-    "season": "",
-    "source": "studio",
-    "style": []
-  },
-  "studio_28168163.jpg": {
-    "color": [],
-    "garment_type": "",
-    "location_context": {
-      "city": null,
-      "continent": null,
-      "country": null
-    },
-    "material": [],
-    "occasion": "",
-    "season": "",
-    "source": "studio",
-    "style": []
-  },
-  "studio_30590661.jpg": {
-    "color": [],
-    "garment_type": "",
-    "location_context": {
-      "city": null,
-      "continent": null,
-      "country": null
-    },
-    "material": [],
-    "occasion": "",
-    "season": "",
-    "source": "studio",
-    "style": []
-  },
-  "studio_31046828.jpg": {
-    "color": [],
-    "garment_type": "",
-    "location_context": {
-      "city": null,
-      "continent": null,
-      "country": null
-    },
-    "material": [],
-    "occasion": "",
-    "season": "",
-    "source": "studio",
-    "style": []
-  },
-  "studio_31046829.jpg": {
-    "color": [],
-    "garment_type": "",
-    "location_context": {
-      "city": null,
-      "continent": null,
-      "country": null
-    },
-    "material": [],
-    "occasion": "",
-    "season": "",
-    "source": "studio",
-    "style": []
-  },
-  "studio_35026909.jpg": {
-    "color": [],
-    "garment_type": "",
-    "location_context": {
-      "city": null,
-      "continent": null,
-      "country": null
-    },
-    "material": [],
-    "occasion": "",
-    "season": "",
-    "source": "studio",
-    "style": []
+    "style": [
+      "smart casual",
+      "tailored"
+    ]
   },
   "studio_36388576.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "green",
+      "white"
+    ],
+    "garment_type": "shirt",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "cotton"
+    ],
+    "occasion": "casual",
+    "season": "all_season",
     "source": "studio",
-    "style": []
-  },
-  "studio_36854075.jpg": {
-    "color": [],
-    "garment_type": "",
-    "location_context": {
-      "city": null,
-      "continent": null,
-      "country": null
-    },
-    "material": [],
-    "occasion": "",
-    "season": "",
-    "source": "studio",
-    "style": []
+    "style": [
+      "casual"
+    ]
   },
   "studio_7752676.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "white"
+    ],
+    "garment_type": "shirt",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "cotton"
+    ],
+    "occasion": "casual",
+    "season": "all_season",
     "source": "studio",
-    "style": []
-  },
-  "studio_7764611.jpg": {
-    "color": [],
-    "garment_type": "",
-    "location_context": {
-      "city": null,
-      "continent": null,
-      "country": null
-    },
-    "material": [],
-    "occasion": "",
-    "season": "",
-    "source": "studio",
-    "style": []
-  },
-  "studio_9218524.jpg": {
-    "color": [],
-    "garment_type": "",
-    "location_context": {
-      "city": null,
-      "continent": null,
-      "country": null
-    },
-    "material": [],
-    "occasion": "",
-    "season": "",
-    "source": "studio",
-    "style": []
-  },
-  "studio_9218536.jpg": {
-    "color": [],
-    "garment_type": "",
-    "location_context": {
-      "city": null,
-      "continent": null,
-      "country": null
-    },
-    "material": [],
-    "occasion": "",
-    "season": "",
-    "source": "studio",
-    "style": []
+    "style": [
+      "casual",
+      "minimalist"
+    ]
   },
   "studio_9558265.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "pink"
+    ],
+    "garment_type": "t_shirt",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "cotton"
+    ],
+    "occasion": "casual",
+    "season": "summer",
     "source": "studio",
-    "style": []
-  },
-  "studio_9558761.jpg": {
-    "color": [],
-    "garment_type": "",
-    "location_context": {
-      "city": null,
-      "continent": null,
-      "country": null
-    },
-    "material": [],
-    "occasion": "",
-    "season": "",
-    "source": "studio",
-    "style": []
+    "style": [
+      "casual"
+    ]
   },
   "studio_9594147.jpg": {
-    "color": [],
-    "garment_type": "",
+    "color": [
+      "cream"
+    ],
+    "garment_type": "sweater",
     "location_context": {
       "city": null,
       "continent": null,
       "country": null
     },
-    "material": [],
-    "occasion": "",
-    "season": "",
+    "material": [
+      "cotton"
+    ],
+    "occasion": "casual",
+    "season": "fall",
     "source": "studio",
-    "style": []
+    "style": [
+      "casual"
+    ]
+  },
+  "studio_4115035.jpg": {
+    "color": [
+      "rust",
+      "white"
+    ],
+    "garment_type": "shirt",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [
+      "cotton"
+    ],
+    "occasion": "casual",
+    "season": "summer",
+    "source": "studio",
+    "style": [
+      "casual",
+      "streetwear"
+    ]
+  },
+  "street_153437.jpg": {
+    "color": [
+      "yellow",
+      "blue"
+    ],
+    "garment_type": "top",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [
+      "cotton",
+      "rayon",
+      "synthetic"
+    ],
+    "occasion": "casual",
+    "season": "summer",
+    "source": "street",
+    "style": [
+      "boho",
+      "ethnic",
+      "bohemian",
+      "traditional"
+    ]
+  },
+  "studio_36899309.jpg": {
+    "color": [
+      "pink",
+      "white"
+    ],
+    "garment_type": "t_shirt",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [
+      "cotton"
+    ],
+    "occasion": "casual",
+    "season": "all_season",
+    "source": "studio",
+    "style": [
+      "casual",
+      "minimalist"
+    ]
+  },
+  "street_11067835.jpg": {
+    "color": [
+      "black",
+      "white"
+    ],
+    "garment_type": "sweater",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [
+      "cotton"
+    ],
+    "occasion": "casual",
+    "season": "winter",
+    "source": "street",
+    "style": [
+      "casual",
+      "streetwear"
+    ]
+  },
+  "studio_9222751.jpg": {
+    "color": [
+      "orange"
+    ],
+    "garment_type": "jacket",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [
+      "cotton"
+    ],
+    "occasion": "casual",
+    "season": "all_season",
+    "source": "studio",
+    "style": [
+      "workwear",
+      "minimalist"
+    ]
+  },
+  "street_28428043.jpg": {
+    "color": [
+      "red",
+      "white"
+    ],
+    "garment_type": "traditional_wear",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [
+      "silk",
+      "cotton"
+    ],
+    "occasion": "festival",
+    "season": "all_season",
+    "source": "street",
+    "style": [
+      "traditional",
+      "ethnic"
+    ]
+  },
+  "street_9663190.jpg": {
+    "color": [
+      "grey"
+    ],
+    "garment_type": "sweater",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [
+      "wool",
+      "knit"
+    ],
+    "occasion": "casual",
+    "season": "winter",
+    "source": "street",
+    "style": [
+      "cozy",
+      "casual"
+    ]
+  },
+  "street_20036215.jpg": {
+    "color": [
+      "green",
+      "white"
+    ],
+    "garment_type": "hoodie",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [
+      "cotton",
+      "fleece"
+    ],
+    "occasion": "casual",
+    "season": "winter",
+    "source": "street",
+    "style": [
+      "streetwear",
+      "casual"
+    ]
+  },
+  "street_15221683.jpg": {
+    "color": [
+      "green"
+    ],
+    "garment_type": "hoodie",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [
+      "cotton",
+      "fleece"
+    ],
+    "occasion": "casual",
+    "season": "fall",
+    "source": "street",
+    "style": [
+      "casual",
+      "streetwear"
+    ]
+  },
+  "street_5789010.jpg": {
+    "color": [
+      "blue",
+      "light blue"
+    ],
+    "garment_type": "jeans",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [
+      "denim"
+    ],
+    "occasion": "casual",
+    "season": "all_season",
+    "source": "street",
+    "style": [
+      "casual"
+    ]
+  },
+  "studio_20471143.jpg": {
+    "color": [
+      "beige",
+      "cream"
+    ],
+    "garment_type": "sweater",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [
+      "wool",
+      "knit"
+    ],
+    "occasion": "casual",
+    "season": "winter",
+    "source": "studio",
+    "style": [
+      "cozy",
+      "casual"
+    ]
+  },
+  "street_8346220.jpg": {
+    "color": [
+      "black"
+    ],
+    "garment_type": "shorts",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [
+      "nylon",
+      "polyester",
+      "synthetic"
+    ],
+    "occasion": "casual",
+    "season": "summer",
+    "source": "street",
+    "style": [
+      "streetwear",
+      "skater"
+    ]
+  },
+  "studio_9464625.jpg": {
+    "color": [
+      "white",
+      "blue"
+    ],
+    "garment_type": "t_shirt",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [
+      "cotton"
+    ],
+    "occasion": "casual",
+    "season": "summer",
+    "source": "studio",
+    "style": [
+      "minimalist",
+      "casual"
+    ]
+  },
+  "studio_10341113.jpg": {
+    "color": [
+      "beige",
+      "khaki"
+    ],
+    "garment_type": "trousers",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [
+      "cotton"
+    ],
+    "occasion": "business",
+    "season": "all_season",
+    "source": "studio",
+    "style": [
+      "smart casual",
+      "minimalist"
+    ]
+  },
+  "studio_2699250.jpg": {
+    "color": [
+      "orange"
+    ],
+    "garment_type": "trousers",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [
+      "wool",
+      "polyester",
+      "synthetic"
+    ],
+    "occasion": "formal",
+    "season": "all_season",
+    "source": "studio",
+    "style": [
+      "tailored",
+      "minimalist"
+    ]
+  },
+  "street_19236839.jpg": {
+    "color": [
+      "white",
+      "cream"
+    ],
+    "garment_type": "jumpsuit",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [
+      "cotton",
+      "polyester",
+      "synthetic"
+    ],
+    "occasion": "casual",
+    "season": "all_season",
+    "source": "street",
+    "style": [
+      "utility",
+      "minimalist"
+    ]
+  },
+  "studio_447213792.jpg": {
+    "color": [
+      "blue",
+      "black"
+    ],
+    "garment_type": "top",
+    "location_context": {
+      "city": null,
+      "continent": null,
+      "country": null
+    },
+    "material": [
+      "cotton"
+    ],
+    "occasion": "casual",
+    "season": "summer",
+    "source": "studio",
+    "style": [
+      "colorblock",
+      "casual"
+    ]
   }
 }

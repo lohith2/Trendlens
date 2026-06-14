@@ -14,10 +14,13 @@ from pydantic import BaseModel, Field
 class GarmentType(str, Enum):
     DRESS = "dress"
     TOP = "top"
+    T_SHIRT = "t_shirt"
     SHIRT = "shirt"
     BLOUSE = "blouse"
     SWEATER = "sweater"
+    HOODIE = "hoodie"
     JACKET = "jacket"
+    BLAZER = "blazer"
     COAT = "coat"
     TROUSERS = "trousers"
     JEANS = "jeans"

@@ -123,13 +123,33 @@ def match_freetext(pred: str, label_list) -> bool | None:
     return any(_fuzzy_eq(pred, a) for a in accepts)
 
 
+# Color spelling/shade equivalences applied before fuzzy matching. Substring
+# replacements so compounds normalize too ("light gray" -> "light grey"). Kept
+# deliberately tight: only same-color spelling variants (grey/gray) and shades
+# used interchangeably in fashion tagging (burgundy/maroon) — not perceptual
+# neighbors like beige/cream, which the model should still be expected to tell
+# apart.
+_COLOR_CANON = {
+    "gray": "grey",
+    "burgundy": "maroon",
+}
+
+
+def _canon_color(value: str) -> str:
+    out = _norm(value)
+    for variant, canon in _COLOR_CANON.items():
+        out = out.replace(variant, canon)
+    return out
+
+
 def match_color(pred_list, label_list) -> bool | None:
     """color_palette: correct if the predicted and labeled color sets overlap.
 
     Overlap (not exact set equality) because a garment's palette is fuzzy:
     crediting the model for finding the labeled colors, without penalizing it
-    for naming an extra shade, is the fairer measure. Returns None when the
-    label has no colors (unscored).
+    for naming an extra shade, is the fairer measure. Spelling/shade variants
+    are canonicalized first (see _COLOR_CANON). Returns None when the label has
+    no colors (unscored).
     """
     labels = _as_list(label_list)
     if not labels:
@@ -137,7 +157,7 @@ def match_color(pred_list, label_list) -> bool | None:
     preds = _as_list(pred_list)
     if not preds:
         return False
-    return any(_fuzzy_eq(p, l) for p in preds for l in labels)
+    return any(_fuzzy_eq(_canon_color(p), _canon_color(l)) for p in preds for l in labels)
 
 
 def match_location(pred_value, label_value) -> bool:
@@ -453,9 +473,26 @@ def render_results(results: list[ModelResult], labels: dict) -> str:
 
     lines.append("## Analysis")
     lines.append("")
-    lines.append("> TODO after reviewing the table and misses above.")
+    lines.append(_preserved_analysis())
     lines.append("")
     return "\n".join(lines)
+
+
+def _preserved_analysis() -> str:
+    """Carry a hand-written Analysis section across re-runs.
+
+    The tables above are always regenerated, but the narrative below them is
+    written by hand. Re-read the previous results.md and keep its Analysis body
+    unless it is still the placeholder, so re-scoring never clobbers the writeup.
+    """
+    placeholder = "> TODO after reviewing the table and misses above."
+    if RESULTS_PATH.exists():
+        prev = RESULTS_PATH.read_text()
+        _, _, after = prev.partition("\n## Analysis\n")
+        body = after.strip()
+        if body and placeholder not in body:
+            return body
+    return placeholder
 
 
 # --------------------------------------------------------------------------- #
