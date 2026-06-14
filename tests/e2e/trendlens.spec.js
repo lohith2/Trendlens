@@ -52,17 +52,22 @@ test("open detail and add a designer annotation", async ({ page }) => {
   await expect(panel.getByText("No annotations yet.")).toHaveCount(0);
 });
 
-test("upload a photo and see it classified into the grid", async ({ page }) => {
+test("upload a photo, classify it, then filter to find it", async ({ page }) => {
+  // One journey covering all three required flows: upload -> classify -> filter.
   await page.goto("/");
   await expect(page.getByTestId("image-card")).toHaveCount(3);
 
+  // upload + classify (the stubbed classifier returns a "top")
   await page.getByRole("button", { name: "Upload" }).click();
   await page.getByTestId("upload-file").setInputFiles(FIXTURE);
   await page.getByTestId("upload-submit").click();
 
   await expect(page.getByTestId("image-count")).toHaveText("4 images");
-  await expect(page.getByTestId("image-card")).toHaveCount(4);
-  await expect(
-    page.getByText("an uploaded ribbed cotton top"),
-  ).toBeVisible();
+  await expect(page.getByText("an uploaded ribbed cotton top")).toBeVisible();
+
+  // filter by the freshly-classified garment type: only the uploaded image
+  // (no seeded "top") should remain, proving the classify result is queryable
+  await page.getByTestId("filter-garment_type").selectOption("top");
+  await expect(page.getByTestId("image-card")).toHaveCount(1);
+  await expect(page.getByTestId("image-card")).toContainText("top");
 });
