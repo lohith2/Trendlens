@@ -160,7 +160,8 @@ annotations (
     -- source is implicitly "designer"; AI output lives only in images
 )
 
-images_fts (FTS5 virtual table over description + annotation content)
+images_fts (FTS5 virtual table over description, consumer_profile,
+            trend_notes, and annotation content)
 ```
 
 Frequently filtered attributes are promoted to real columns; the full payload is kept as JSON for flexibility. Annotations live in a separate table, which keeps AI output and human input structurally distinct (a spec requirement) rather than relying on a flag.
@@ -169,7 +170,7 @@ Frequently filtered attributes are promoted to real columns; the full payload is
 
 - **Attribute filters:** SQL WHERE over promoted columns. Filter options are generated at request time from `SELECT DISTINCT` over the actual data (`GET /api/filters`), never hardcoded. New attribute values appear as filter options automatically.
 - **Contextual filters:** location (continent/country/city), time (year/month/season), designer. Same mechanism.
-- **Full-text search:** FTS5 over descriptions and annotations handles queries like "embroidered neckline" or "artisan market". Lexical search is sufficient because the LLM already did the semantic work at upload time, converting visual content into searchable text.
+- **Full-text search:** FTS5 over the rich free-text fields — description, consumer profile, trend notes — plus designer annotations, handles queries like "embroidered neckline" or "artisan market". Discrete attributes (garment type, style, material, pattern, color, occasion) are reached through facet filters; unique free-text paragraphs belong in search, not a dropdown. Lexical search is sufficient because the LLM already did the semantic work at upload time, converting visual content into searchable text.
 - **Why no vector DB:** both retrieval modes here are exact-match filtering and keyword search. Embeddings earn their complexity for similarity queries ("find looks like this one"), which is the natural v2 (see section 9) but out of PoC scope. Adding one now would be infrastructure without a requirement.
 
 ## 6. Evaluation Methodology

@@ -134,16 +134,25 @@ def update_image_classification(
             image_id,
         ),
     )
-    # refresh this image's description row in the search index
+    # refresh this image's model-text rows in the search index. The rich
+    # free-text fields (description, consumer_profile, trend_notes) are all
+    # searchable; discrete attributes are reached via filters instead. Annotation
+    # rows (tag/note) are keyed by their own kinds and left untouched.
     conn.execute(
-        "DELETE FROM images_fts WHERE image_id = ? AND kind = 'description'",
+        "DELETE FROM images_fts WHERE image_id = ? AND kind IN "
+        "('description', 'consumer_profile', 'trend_notes')",
         (image_id,),
     )
-    conn.execute(
-        "INSERT INTO images_fts (content, image_id, kind)"
-        " VALUES (?, ?, 'description')",
-        (attrs.description, image_id),
-    )
+    for kind, content in (
+        ("description", attrs.description),
+        ("consumer_profile", attrs.consumer_profile),
+        ("trend_notes", attrs.trend_notes),
+    ):
+        if content and content.strip():
+            conn.execute(
+                "INSERT INTO images_fts (content, image_id, kind) VALUES (?, ?, ?)",
+                (content, image_id, kind),
+            )
     conn.commit()
 
 

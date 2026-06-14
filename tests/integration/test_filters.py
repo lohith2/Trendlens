@@ -106,6 +106,16 @@ class TestFullTextSearch:
         )
         assert ids(client.get("/api/images?q=artisan")) == {img}
 
+    def test_search_matches_consumer_profile(self, client, seed):
+        match = seed(consumer_profile="minimalist urban commuter")
+        seed(consumer_profile="festival-going maximalist")
+        assert ids(client.get("/api/images?q=commuter")) == {match}
+
+    def test_search_matches_trend_notes(self, client, seed):
+        match = seed(trend_notes="quiet luxury, muted tailoring revival")
+        seed(trend_notes="loud color-blocking")
+        assert ids(client.get("/api/images?q=tailoring")) == {match}
+
     def test_search_punctuation_does_not_error(self, client, seed):
         seed(description="plain top")
         # stray quotes/operators must not produce an FTS syntax error
