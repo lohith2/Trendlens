@@ -60,6 +60,7 @@ export default function FilterSidebar({ facets, active, onChange }) {
             <select
               value={active[field] ?? ""}
               onChange={(e) => setField(field, e.target.value)}
+              data-testid={`filter-${field}`}
               className="w-full rounded-md border border-stone-300 bg-white px-2 py-1.5 text-sm outline-none focus:border-stone-500"
             >
               <option value="">All</option>

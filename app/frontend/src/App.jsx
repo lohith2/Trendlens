@@ -90,7 +90,7 @@ export default function App() {
               {error}
             </div>
           )}
-          <p className="mb-3 text-sm text-stone-500">
+          <p className="mb-3 text-sm text-stone-500" data-testid="image-count">
             {loading ? "Loading…" : `${images.length} image${images.length === 1 ? "" : "s"}`}
           </p>
           <ImageGrid

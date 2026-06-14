@@ -33,6 +33,7 @@ function ImageCard({ image, onSelect, onChanged }) {
   return (
     <button
       onClick={() => onSelect(image)}
+      data-testid="image-card"
       className="group flex flex-col overflow-hidden rounded-lg border border-stone-200 bg-white text-left transition hover:shadow-md"
     >
       <div className="aspect-square overflow-hidden bg-stone-100">

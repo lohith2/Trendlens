@@ -79,6 +79,7 @@ export default function DetailPanel({ image, onClose, onAnnotated }) {
       <div
         className="h-full w-full max-w-lg overflow-y-auto bg-white shadow-xl"
         onClick={(e) => e.stopPropagation()}
+        data-testid="detail-panel"
       >
         <div className="flex items-center justify-between border-b border-stone-200 px-6 py-4">
           <h2 className="text-lg font-semibold capitalize">

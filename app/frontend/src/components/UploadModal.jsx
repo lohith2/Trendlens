@@ -46,6 +46,7 @@ export default function UploadModal({ onClose, onUploaded }) {
               type="file"
               accept="image/jpeg,image/png,image/webp"
               onChange={(e) => setFile(e.target.files?.[0] || null)}
+              data-testid="upload-file"
               className="block w-full text-sm text-stone-600 file:mr-3 file:rounded-md file:border-0 file:bg-stone-900 file:px-3 file:py-1.5 file:text-sm file:text-white"
             />
           </div>
@@ -80,6 +81,7 @@ export default function UploadModal({ onClose, onUploaded }) {
             <button
               type="submit"
               disabled={!file || status === "uploading"}
+              data-testid="upload-submit"
               className="rounded-md bg-stone-900 px-4 py-2 text-sm font-medium text-white hover:bg-stone-700 disabled:opacity-40"
             >
               {status === "uploading" ? "Working…" : "Upload"}
