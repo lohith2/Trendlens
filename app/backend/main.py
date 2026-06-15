@@ -98,9 +98,7 @@ def retry_classification(
     return process_classification(conn, image_id, image_path)
 
 
-@app.get("/api/images")
-def list_images(
-    q: str | None = None,
+def filter_params(
     garment_type: str | None = None,
     season: str | None = None,
     occasion: str | None = None,
@@ -114,9 +112,10 @@ def list_images(
     city: str | None = None,
     year: int | None = None,
     month: int | None = None,
-    conn: sqlite3.Connection = Depends(get_db),
-):
-    filters = {
+) -> dict:
+    """Shared query-param parsing for the filterable attributes, so the image
+    listing and the facet endpoint always accept exactly the same set."""
+    return {
         "garment_type": garment_type,
         "season": season,
         "occasion": occasion,
@@ -131,12 +130,24 @@ def list_images(
         "year": year,
         "month": month,
     }
+
+
+@app.get("/api/images")
+def list_images(
+    q: str | None = None,
+    filters: dict = Depends(filter_params),
+    conn: sqlite3.Connection = Depends(get_db),
+):
     return db.query_images(conn, filters, q)
 
 
 @app.get("/api/filters")
-def list_filters(conn: sqlite3.Connection = Depends(get_db)):
-    return db.get_filter_facets(conn)
+def list_filters(
+    q: str | None = None,
+    filters: dict = Depends(filter_params),
+    conn: sqlite3.Connection = Depends(get_db),
+):
+    return db.get_filter_facets(conn, filters, q)
 
 
 @app.get("/api/images/{image_id}")

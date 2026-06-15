@@ -184,27 +184,35 @@ def _build_fts_match(q: str) -> str:
     return " ".join(f"{token}*" for token in tokens)
 
 
-def query_images(
-    conn: sqlite3.Connection,
-    filters: dict | None = None,
-    q: str | None = None,
-) -> list[dict]:
-    filters = filters or {}
+def _build_filter_where(
+    filters: dict, q: str | None, exclude: str | None = None
+) -> tuple[list[str], list]:
+    """Shared WHERE clauses + params for both image queries and facet counts.
+
+    `exclude` drops one filter field so a facet never constrains its own
+    options: with garment_type=coat active, the `style` facet narrows to styles
+    seen on coats, but the `garment_type` facet must still list every type so
+    the user can switch away from coat. The free-text search `q` is not a facet
+    field, so it always applies.
+    """
     where: list[str] = []
     params: list = []
 
     for field in FILTER_FIELDS:
+        if field == exclude:
+            continue
         value = filters.get(field)
         if value is not None and value != "":
             where.append(f"{field} = ?")
             params.append(value)
 
-    color = filters.get("color")
-    if color:
-        # color_palette is a comma-joined lowercase string; pad with commas so
-        # the match is on a whole token, not a substring ("red" != "redwood")
-        where.append("(',' || color_palette || ',') LIKE ?")
-        params.append(f"%,{color.lower()},%")
+    if exclude != "color":
+        color = filters.get("color")
+        if color:
+            # color_palette is a comma-joined lowercase string; pad with commas
+            # so the match is a whole token, not a substring ("red" != "redwood")
+            where.append("(',' || color_palette || ',') LIKE ?")
+            params.append(f"%,{color.lower()},%")
 
     if q:
         match = _build_fts_match(q)
@@ -214,6 +222,15 @@ def query_images(
             )
             params.append(match)
 
+    return where, params
+
+
+def query_images(
+    conn: sqlite3.Connection,
+    filters: dict | None = None,
+    q: str | None = None,
+) -> list[dict]:
+    where, params = _build_filter_where(filters or {}, q)
     sql = "SELECT * FROM images"
     if where:
         sql += " WHERE " + " AND ".join(where)
@@ -221,27 +238,44 @@ def query_images(
     return [_row_to_image(row) for row in conn.execute(sql, params)]
 
 
-def get_filter_facets(conn: sqlite3.Connection) -> dict[str, list]:
-    """Distinct values per filterable field, generated from the data itself.
+def get_filter_facets(
+    conn: sqlite3.Connection,
+    filters: dict | None = None,
+    q: str | None = None,
+) -> dict[str, list]:
+    """Distinct values per filterable field, narrowed by the active filters.
 
-    New attribute values become filter options automatically; nothing here
-    is hardcoded.
+    Each facet is computed over the images matching all the OTHER active filters
+    (and q), excluding the facet's own field so a selection never collapses its
+    own dropdown. Still fully dynamic — values come from the data, nothing is
+    hardcoded.
     """
+    filters = filters or {}
     facets: dict[str, list] = {}
-    for field in FILTER_FIELDS:
-        rows = conn.execute(
-            f"SELECT DISTINCT {field} FROM images "
-            f"WHERE {field} IS NOT NULL AND {field} != '' ORDER BY {field}"
-        ).fetchall()
-        facets[field] = [row[0] for row in rows]
 
-    colors: set[str] = set()
-    for (palette,) in conn.execute(
+    for field in FILTER_FIELDS:
+        where, params = _build_filter_where(filters, q, exclude=field)
+        clauses = [f"{field} IS NOT NULL", f"{field} != ''", *where]
+        sql = (
+            f"SELECT DISTINCT {field} FROM images "
+            f"WHERE {' AND '.join(clauses)} ORDER BY {field}"
+        )
+        facets[field] = [row[0] for row in conn.execute(sql, params)]
+
+    # color: split the comma-joined palette into tokens, narrowed by every
+    # active filter except color itself
+    where, params = _build_filter_where(filters, q, exclude="color")
+    sql = (
         "SELECT color_palette FROM images "
         "WHERE color_palette IS NOT NULL AND color_palette != ''"
-    ):
+    )
+    if where:
+        sql += " AND " + " AND ".join(where)
+    colors: set[str] = set()
+    for (palette,) in conn.execute(sql, params):
         colors.update(c for c in palette.split(",") if c)
     facets["color"] = sorted(colors)
+
     return facets
 
 

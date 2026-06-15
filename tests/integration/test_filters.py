@@ -152,6 +152,31 @@ class TestFacets:
         assert facets["country"] == ["France"]
         assert facets["year"] == [2025]
 
+    def test_facets_co_narrow_with_active_filter(self, client, seed):
+        seed(garment_type=GarmentType.COAT, style="minimalist", season=Season.WINTER)
+        seed(garment_type=GarmentType.COAT, style="vintage", season=Season.FALL)
+        seed(garment_type=GarmentType.DRESS, style="bohemian", season=Season.SUMMER)
+
+        facets = client.get("/api/filters?garment_type=coat").json()
+        # style facet narrows to the styles that actually occur among coats
+        assert set(facets["style"]) == {"minimalist", "vintage"}
+        # garment_type must NOT constrain its own options (self-exclusion), so a
+        # user can still switch away from coat
+        assert set(facets["garment_type"]) == {"coat", "dress"}
+
+    def test_facets_respect_combined_filter(self, client, seed):
+        seed(garment_type=GarmentType.COAT, style="minimalist", season=Season.WINTER)
+        seed(garment_type=GarmentType.COAT, style="vintage", season=Season.FALL)
+        seed(garment_type=GarmentType.DRESS, style="bohemian", season=Season.WINTER)
+
+        facets = client.get("/api/filters?garment_type=coat&season=winter").json()
+        # style respects BOTH active filters: only the minimalist winter coat
+        assert set(facets["style"]) == {"minimalist"}
+        # season excludes itself but respects garment_type=coat -> seasons of coats
+        assert set(facets["season"]) == {"winter", "fall"}
+        # garment_type excludes itself but respects season=winter -> types in winter
+        assert set(facets["garment_type"]) == {"coat", "dress"}
+
 
 class TestAnnotations:
     def test_create_and_list_annotation(self, client, seed):

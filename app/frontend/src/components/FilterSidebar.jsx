@@ -51,7 +51,17 @@ export default function FilterSidebar({ facets, active, onChange }) {
 
       {FIELD_ORDER.map(([field, label]) => {
         const options = facets[field] || [];
-        if (options.length === 0) return null;
+        const selected = active[field];
+        // self-exclusion should keep a selected value in its own options, but
+        // if it ever isn't, still render it so the selection doesn't silently
+        // reset out from under the user
+        const opts =
+          selected != null &&
+          selected !== "" &&
+          !options.some((o) => String(o) === String(selected))
+            ? [...options, selected]
+            : options;
+        if (opts.length === 0) return null;
         return (
           <div key={field}>
             <label className="mb-1 block text-xs font-medium text-stone-600">
@@ -64,7 +74,7 @@ export default function FilterSidebar({ facets, active, onChange }) {
               className="w-full rounded-md border border-stone-300 bg-white px-2 py-1.5 text-sm outline-none focus:border-stone-500"
             >
               <option value="">All</option>
-              {options.map((opt) => (
+              {opts.map((opt) => (
                 <option key={opt} value={opt}>
                   {String(opt).replace(/_/g, " ")}
                 </option>

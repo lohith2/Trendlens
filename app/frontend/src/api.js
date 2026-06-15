@@ -18,8 +18,17 @@ export async function fetchImages(filters = {}, q = "") {
   return res.json();
 }
 
-export async function fetchFilters() {
-  const res = await fetch("/api/filters");
+export async function fetchFilters(filters = {}, q = "") {
+  // facets co-narrow with the active selection, so they take the same params
+  // as the image query
+  const params = new URLSearchParams();
+  if (q) params.set("q", q);
+  for (const [key, value] of Object.entries(filters)) {
+    if (value !== null && value !== undefined && value !== "") {
+      params.set(key, value);
+    }
+  }
+  const res = await fetch(`/api/filters?${params.toString()}`);
   if (!res.ok) throw new Error(`failed to load filters (${res.status})`);
   return res.json();
 }

@@ -34,19 +34,19 @@ export default function App() {
 
   const loadFacets = useCallback(async () => {
     try {
-      setFacets(await fetchFilters());
+      // facets co-narrow with the active selection, so they depend on the
+      // same filters/query as the grid and refetch whenever those change
+      setFacets(await fetchFilters(activeFilters, query));
     } catch {
       /* facets are non-critical; ignore transient failures */
     }
-  }, []);
+  }, [activeFilters, query]);
 
+  // grid and facets reload together whenever filters or the query change
   useEffect(() => {
     loadImages();
-  }, [loadImages]);
-
-  useEffect(() => {
     loadFacets();
-  }, [loadFacets]);
+  }, [loadImages, loadFacets]);
 
   // refresh both the grid and the filter options after data changes
   const refreshAll = useCallback(() => {
