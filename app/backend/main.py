@@ -2,6 +2,7 @@
 from dotenv import load_dotenv
 
 load_dotenv()
+import logging
 import os
 import sqlite3
 import uuid
@@ -12,8 +13,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from app.backend import db
-from app.backend.classifier import ClassificationError, classify_image
+from app.backend.classifier import classify_image
 from app.backend.schemas import AnnotationIn
+
+logger = logging.getLogger(__name__)
 
 UPLOADS_DIR = Path(os.environ.get("TRENDLENS_UPLOADS", "uploads"))
 ALLOWED_SUFFIXES = {".jpg", ".jpeg", ".png", ".webp"}
@@ -44,11 +47,15 @@ def get_db():
 def process_classification(
     conn: sqlite3.Connection, image_id: int, image_path: Path, client=None
 ) -> dict:
-    """Classify and persist. A failed model call never loses the upload:
-    the row survives with status=failed and can be retried."""
+    """Classify and persist. Any classification failure degrades to
+    status=failed (retryable) rather than failing the upload. ClassificationError
+    is the expected path; the broad catch also covers the unexpected — a
+    misconfigured client, a broken dependency — so an accepted upload is never
+    turned into a 500."""
     try:
         attrs = classify_image(image_path, client=client)
-    except ClassificationError:
+    except Exception:  # noqa: BLE001 - deliberate: a stored upload must never 500
+        logger.exception("classification failed for image %s", image_id)
         db.mark_image_failed(conn, image_id)
     else:
         db.update_image_classification(conn, image_id, attrs)
