@@ -26,24 +26,29 @@ CRUD over that structured data, so reads are fast and free of model calls.
 
 Prerequisites: Python 3.11+ (developed on 3.13) and Node 18+.
 
-### 1. Backend
-
 ```bash
-python -m venv .venv
-.venv/bin/pip install -r requirements.txt
-cp .env.example .env          # then set OPENAI_API_KEY
-.venv/bin/uvicorn app.backend.main:app --reload   # http://localhost:8000
+cp .env.example .env   # then set OPENAI_API_KEY
+make setup             # create .venv + install backend & frontend deps (first time)
+make dev               # run backend (:8000) + frontend (:5173); open http://localhost:5173
 ```
 
-`OPENAI_API_KEY` is required for classifying uploads. `MODEL` defaults to
-`gpt-4o-mini`.
+`make help` lists all targets. `OPENAI_API_KEY` is required for classifying
+uploads; `MODEL` defaults to `gpt-4o-mini`.
 
-### 2. Frontend
+> **macOS note:** keep this project out of the iCloud-synced `~/Desktop` and
+> `~/Documents`. iCloud can evict file contents ("dataless" files), which
+> corrupts the `.venv` and `node_modules`. A non-synced path like `~/code/…`
+> is safe.
+
+### Run it manually instead
 
 ```bash
-cd app/frontend
-npm install
-npm run dev                   # http://localhost:5173
+# backend
+python -m venv .venv && .venv/bin/pip install -r requirements.txt
+.venv/bin/python -m uvicorn app.backend.main:app --reload   # http://localhost:8000
+
+# frontend (separate terminal)
+cd app/frontend && npm install && npm run dev               # http://localhost:5173
 ```
 
 The dev server proxies `/api` and `/uploads` to the backend on `:8000`, so open
