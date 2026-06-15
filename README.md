@@ -24,7 +24,7 @@ CRUD over that structured data, so reads are fast and free of model calls.
 
 ## Quick start
 
-Prerequisites: Python 3.11+ (developed on 3.13) and Node 18+.
+Prerequisites: Python 3.11+ and Node 18+.
 
 ```bash
 cp .env.example .env   # then set OPENAI_API_KEY

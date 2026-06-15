@@ -19,7 +19,7 @@ flowchart TB
         DetailPanel["DetailPanel.jsx"]
     end
 
-    subgraph BE["Backend - FastAPI, Python 3.11"]
+    subgraph BE["Backend - FastAPI, Python 3.11+"]
         direction LR
         UploadRoute["POST /api/images"]
         ListRoute["GET /api/images"]
