@@ -225,7 +225,7 @@ Three layers, all runnable locally with no external API calls:
 - **Integration** (`tests/integration/`) — the API over a throwaway SQLite DB seeded straight through the data layer (classifier not involved): attribute/designer/location/time filters, the whole-token color rule, combined filters, and FTS search over descriptions and annotations.
 - **End-to-end** (`tests/e2e/`, Playwright) — the real UI driven in a browser: grid load, filtering, search, detail panel + annotation, and upload. The backend boots against a seeded throwaway DB with the **vision classifier monkeypatched in the test launcher** (not behind a production flag), so the upload flow runs end-to-end without calling OpenAI.
 
-Current coverage: 40 unit + integration tests (pytest) and 6 e2e journeys (Playwright), all green. The classifier's *quality* is tracked separately by the eval harness (section 6) — a measurement, not a pass/fail gate.
+Current coverage: 44 unit + integration tests (pytest) and 6 e2e journeys (Playwright), all green. The classifier's *quality* is tracked separately by the eval harness (section 6) — a measurement, not a pass/fail gate.
 
 ## 8. Trade-offs and Simplifying Assumptions
 
