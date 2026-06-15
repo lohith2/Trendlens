@@ -5,7 +5,7 @@ re-running after adding studio images never overwrites hand-entered labels - it
 only appends stubs for images that don't have an entry yet.
 
 Source tier comes from sources.json (street, from Pexels). Any image not in
-sources.json defaults to source="studio" (the Kaggle additions).
+sources.json defaults to source="studio".
 
 Labels are filled in BY HAND. Do not auto-label with the model - that would
 bias the eval against the thing it measures.
