@@ -21,8 +21,9 @@ export default function UploadModal({ onClose, onUploaded }) {
       if (result.status === "failed") {
         alert("Image uploaded, but classification failed. Use Retry on the card.");
       }
-    } catch (err) {
-      setError(err.message);
+    } catch {
+      // keep failures generic for users — no status codes or raw messages
+      setError("Something went wrong. Please try again.");
       setStatus("error");
     }
   };
@@ -63,10 +64,13 @@ export default function UploadModal({ onClose, onUploaded }) {
           </div>
 
           {status === "uploading" && (
-            <p className="text-sm text-amber-700">
-              Uploading and classifying… this calls the vision model and may
-              take a few seconds.
-            </p>
+            <div
+              className="flex justify-center py-2"
+              role="status"
+              aria-label="Classifying"
+            >
+              <span className="h-6 w-6 animate-spin rounded-full border-2 border-stone-200 border-t-stone-800" />
+            </div>
           )}
           {error && <p className="text-sm text-red-600">{error}</p>}
 
